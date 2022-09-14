@@ -21,15 +21,18 @@ function render(data = []) {
       row.appendChild(td);
     }
     const td = document.createElement("td");
- 
-    
+     const deleteButton = document.createElement("button");
+     deleteButton.classList.add("btn", "btn-danger");
+     deleteButton.innerText = "DELETE";
+     deleteButton.addEventListener("click", function (e) {
+       tbody.removeChild(e.target.parentElement.parentElement);
+     });
 
+    td.appendChild(deleteButton);
     row.appendChild(td);
     tbody.appendChild(row);
   });
 }
-
-
 
 userForm.addEventListener("submit", function (e) {
   e.preventDefault();
